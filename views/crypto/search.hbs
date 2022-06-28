@@ -1,0 +1,42 @@
+<main>
+    <section class="crypto-search">
+        <h1>Search</h1>
+
+        <form class="search-form" method="post">
+            <input type="text" class="search-coin" name="name" placeholder="Search here...">
+            <select id="payment" name="payMethod">
+                <option value="crypto-wallet">Crypto Wallet</option>
+                <option value="credit-card">Credit Card</option>
+                <option value="debit-card">Debit Card</option>
+                <option value="paypal">PayPal</option>
+            </select>
+            <button type="submit" class="btn-search">Search</button>
+        </form>
+
+    {{#each allRecords}}
+        <div class="search-result">
+            <div class="search-list">
+                <div class="coin">
+                    <div class="coin-img">
+                        <img src="{{cryptoImage}}">
+                    </div>
+                    <div class="coin-info">
+                        <h1>{{name}}</h1>
+                        <p><span>Price: </span>${{price}}</p>
+                        <p><span>Payment: </span>{{payMethod}}</p>
+                    </div>
+
+                    <a href="/market/{{_id}}/details" class="btn-details">Details</a>
+                </div>
+            </div>
+        </div>
+    {{else}}
+            <div class="no-match">
+                <p>No match was found!</p>
+            </div>
+    {{/each}}
+        
+
+        
+    </section>
+</main>
